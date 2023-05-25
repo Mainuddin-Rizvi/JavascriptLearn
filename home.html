@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Collection and NodeList Example</title>
+</head>
+<body>
+  <h1>Collection and NodeList Example</h1>
+  
+  <div id="myDiv">
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+  </div>
+
+  <script>
+    // JavaScript code to work with collections and NodeLists
+    const myDiv = document.getElementById('myDiv');
+
+    // Example using collection
+    const paragraphs = myDiv.getElementsByTagName('p');
+    console.log('Collection:');
+    console.log(paragraphs.length); // Output: 3
+    console.log(paragraphs[0].textContent); // Output: Paragraph 1
+
+    // Example using NodeList
+    const nodeList = myDiv.querySelectorAll('p');
+    console.log('NodeList:');
+    console.log(nodeList.length); // Output: 3
+    console.log(nodeList[2].textContent); // Output: Paragraph 3
+
+    // Modifying elements in the collection or NodeList
+    paragraphs[1].textContent = 'Modified Paragraph';
+    nodeList[2].style.color = 'red';
+  </script>
+</body>
+</html>
