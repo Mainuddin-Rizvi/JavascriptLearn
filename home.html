@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Collection and NodeList Example</title>
+  <title>BOM Example</title>
 </head>
 <body>
-  <h1>Collection and NodeList Example</h1>
-  
-  <div id="myDiv">
-    <p>Paragraph 1</p>
-    <p>Paragraph 2</p>
-    <p>Paragraph 3</p>
-  </div>
+  <h1>BOM Example</h1>
 
   <script>
-    // JavaScript code to work with collections and NodeLists
-    const myDiv = document.getElementById('myDiv');
+    // JavaScript code to work with the BOM
+    function displayBOMProperties() {
+      // Accessing properties of the window object
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      console.log('Window Width:', windowWidth);
+      console.log('Window Height:', windowHeight);
 
-    // Example using collection
-    const paragraphs = myDiv.getElementsByTagName('p');
-    console.log('Collection:');
-    console.log(paragraphs.length); // Output: 3
-    console.log(paragraphs[0].textContent); // Output: Paragraph 1
+      // Accessing properties of the navigator object
+      const browserName = navigator.userAgent;
+      const browserLanguage = navigator.language;
+      console.log('Browser Name:', browserName);
+      console.log('Browser Language:', browserLanguage);
 
-    // Example using NodeList
-    const nodeList = myDiv.querySelectorAll('p');
-    console.log('NodeList:');
-    console.log(nodeList.length); // Output: 3
-    console.log(nodeList[2].textContent); // Output: Paragraph 3
+      // Accessing properties of the location object
+      const currentURL = location.href;
+      const hostName = location.hostname;
+      console.log('Current URL:', currentURL);
+      console.log('Host Name:', hostName);
 
-    // Modifying elements in the collection or NodeList
-    paragraphs[1].textContent = 'Modified Paragraph';
-    nodeList[2].style.color = 'red';
+      // Accessing properties of the history object
+      const historyLength = history.length;
+      console.log('History Length:', historyLength);
+
+      // Accessing properties of the screen object
+      const screenWidth = screen.width;
+      const screenHeight = screen.height;
+      const colorDepth = screen.colorDepth;
+      console.log('Screen Width:', screenWidth);
+      console.log('Screen Height:', screenHeight);
+      console.log('Color Depth:', colorDepth);
+    }
   </script>
+
+  <button onclick="displayBOMProperties()">Display BOM Properties</button>
 </body>
 </html>
