@@ -1,24 +1,17 @@
-var eng =85;// funtion scope 
+// String variable declaration
+var message = "Hello, world!";
+let name = "Alice";
+const companyName = "Example Inc.";
 
-let math = 60; //locally scope
-const pie =3.14; // cant reassign
+// Template literal usage
+let greeting = `Hello, ${name}!`;
 
+// String method example
+let substringExample = message.substring(7);
 
-function example() {
-    var x = 10;
-    let y = 20;
-  
-    if (true) {
-      var innerVar = 30;
-      let innerLet = 40;
-      console.log(x);        // 10 (accessible)
-      console.log(y);        // 20 (accessible)
-      console.log(innerVar); // 30 (accessible)
-      console.log(innerLet); // 40 (accessible)
-    }
-  
-    console.log(x);          // 10 (accessible)
-    console.log(y);          // 20 (accessible)
-    console.log(innerVar);   // 30 (accessible)
-    console.log(innerLet);   // ReferenceError: innerLet is not defined
-  }
+// Outputting the results
+console.log(message);           // Output: Hello, world!
+console.log(name);              // Output: Alice
+console.log(companyName);       // Output: Example Inc.
+console.log(greeting);          // Output: Hello, Alice!
+console.log(substringExample);  // Output: world!
