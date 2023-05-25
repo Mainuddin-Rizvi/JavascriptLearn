@@ -1,46 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BOM Example</title>
+  <title>Function in HTML</title>
 </head>
 <body>
-  <h1>BOM Example</h1>
+  <h1>Function in HTML</h1>
+
+  <button onclick="greet('Alice')">Greet Alice</button>
+  <button onclick="greet('Bob')">Greet Bob</button>
 
   <script>
-    // JavaScript code to work with the BOM
-    function displayBOMProperties() {
-      // Accessing properties of the window object
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-      console.log('Window Width:', windowWidth);
-      console.log('Window Height:', windowHeight);
-
-      // Accessing properties of the navigator object
-      const browserName = navigator.userAgent;
-      const browserLanguage = navigator.language;
-      console.log('Browser Name:', browserName);
-      console.log('Browser Language:', browserLanguage);
-
-      // Accessing properties of the location object
-      const currentURL = location.href;
-      const hostName = location.hostname;
-      console.log('Current URL:', currentURL);
-      console.log('Host Name:', hostName);
-
-      // Accessing properties of the history object
-      const historyLength = history.length;
-      console.log('History Length:', historyLength);
-
-      // Accessing properties of the screen object
-      const screenWidth = screen.width;
-      const screenHeight = screen.height;
-      const colorDepth = screen.colorDepth;
-      console.log('Screen Width:', screenWidth);
-      console.log('Screen Height:', screenHeight);
-      console.log('Color Depth:', colorDepth);
+    // JavaScript function
+    function greet(name) {
+      console.log('Hello, ' + name + '!');
     }
   </script>
-
-  <button onclick="displayBOMProperties()">Display BOM Properties</button>
 </body>
 </html>
