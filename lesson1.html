@@ -1,60 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DOM Manipulation Example</title>
+  <title>Form DOM Manipulation Example</title>
   <style>
-    .highlight {
-      background-color: yellow;
+    .error {
+      color: red;
     }
   </style>
 </head>
 <body>
-  <h1 id="heading">Welcome to DOM Manipulation Example</h1>
-  <p class="content">This is paragraph 1.</p>
-  <p class="content">This is paragraph 2.</p>
-  <ul>
-    <li class="item">Item 1</li>
-    <li class="item">Item 2</li>
-    <li class="item">Item 3</li>
-  </ul>
-  <input type="text" id="inputField" placeholder="Enter your name">
-  <button id="btn">Click me!</button>
+  <h1>Form DOM Manipulation Example</h1>
+
+  <form id="myForm">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <span id="nameError" class="error"></span>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <span id="emailError" class="error"></span>
+    </div>
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+      <span id="messageError" class="error"></span>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
 
   <script>
-    // getElementById
-    var heading = document.getElementById("heading");
-    heading.textContent = "Updated Heading";
-    heading.style.color = "blue";
+    var form = document.getElementById("myForm");
 
-    // getElementsByClassName
-    var paragraphs = document.getElementsByClassName("content");
-    for (var i = 0; i < paragraphs.length; i++) {
-      paragraphs[i].style.fontWeight = "bold";
-    }
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
 
-    // getElementsByTagName
-    var listItems = document.getElementsByTagName("li");
-    for (var i = 0; i < listItems.length; i++) {
-      listItems[i].style.backgroundColor = "lightgray";
-    }
+      var nameInput = document.getElementById("name");
+      var emailInput = document.getElementById("email");
+      var messageInput = document.getElementById("message");
 
-    // querySelector
-    var inputField = document.querySelector("#inputField");
-    inputField.value = "John Doe";
+      var nameError = document.getElementById("nameError");
+      var emailError = document.getElementById("emailError");
+      var messageError = document.getElementById("messageError");
 
-    // querySelectorAll
-    var items = document.querySelectorAll(".item");
-    items.forEach(function(item) {
-      item.style.textDecoration = "underline";
-    });
+      // Clear previous error messages
+      nameError.textContent = "";
+      emailError.textContent = "";
+      messageError.textContent = "";
 
-    // addEventListener
-    var button = document.getElementById("btn");
-    button.addEventListener("click", function() {
-      var inputValue = inputField.value;
-      var newItem = document.createElement("li");
-      newItem.textContent = inputValue;
-      document.querySelector("ul").appendChild(newItem);
+      // Validate form inputs
+      if (nameInput.value.trim() === "") {
+        nameError.textContent = "Name is required";
+        nameInput.focus();
+        return;
+      }
+
+      if (emailInput.value.trim() === "") {
+        emailError.textContent = "Email is required";
+        emailInput.focus();
+        return;
+      }
+
+      if (messageInput.value.trim() === "") {
+        messageError.textContent = "Message is required";
+        messageInput.focus();
+        return;
+      }
+
+      // Form submission success
+      alert("Form submitted successfully!");
+      form.reset();
     });
   </script>
 </body>
