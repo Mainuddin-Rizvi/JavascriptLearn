@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Function in HTML</title>
+  <title>OOP in JavaScript</title>
 </head>
 <body>
-  <h1>Function in HTML</h1>
-
-  <button onclick="greet('Alice')">Greet Alice</button>
-  <button onclick="greet('Bob')">Greet Bob</button>
+  <h1>OOP in JavaScript</h1>
 
   <script>
-    // JavaScript function
-    function greet(name) {
-      console.log('Hello, ' + name + '!');
+    // Class definition
+    class Circle {
+      constructor(radius) {
+        this.radius = radius;
+      }
+
+      // Method to calculate the area of the circle
+      calculateArea() {
+        return Math.PI * this.radius ** 2;
+      }
     }
+
+    // Function to display circle details
+    function displayCircleDetails(circle) {
+      console.log(`Radius: ${circle.radius}`);
+      console.log(`Area: ${circle.calculateArea().toFixed(2)}`);
+    }
+
+    // Creating objects (instances) of the class
+    const circle1 = new Circle(5);
+    const circle2 = new Circle(7);
+
+    // Calling the function to display circle details
+    console.log('Circle 1:');
+    displayCircleDetails(circle1);
+
+    console.log('Circle 2:');
+    displayCircleDetails(circle2);
   </script>
 </body>
 </html>
