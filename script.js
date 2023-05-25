@@ -1,21 +1,50 @@
-var value1 = "Hello";        // truthy value (non-empty string)
-var value2 = 0;              // falsy value (number zero)
-var value3 = null;           // falsy value (null)
-var value4;                  // falsy value (undefined)
-var value5 = "";             // falsy value (empty string)
-var value6 = "false";        // truthy value (non-empty string)
-var value7 = true;           // truthy value (boolean true)
-var value8 = [];             // truthy value (empty array)
-var value9 = {};             // truthy value (empty object)
-var value10 = function() {}; // truthy value (empty function)
+// Array declaration and initialization
+var numbers = [1, 2, 3, 4, 5];
+var fruits = ["apple", "banana", "orange"];
+var mixed = [1, "hello", true, [2, 4, 6]];
 
-console.log(Boolean(value1)); // Output: true
-console.log(Boolean(value2)); // Output: false
-console.log(Boolean(value3)); // Output: false
-console.log(Boolean(value4)); // Output: false
-console.log(Boolean(value5)); // Output: false
-console.log(Boolean(value6)); // Output: true
-console.log(Boolean(value7)); // Output: true
-console.log(Boolean(value8)); // Output: true
-console.log(Boolean(value9)); // Output: true
-console.log(Boolean(value10)); // Output: true
+// Accessing array elements
+console.log(numbers[0]);    // Output: 1
+console.log(fruits[1]);     // Output: banana
+console.log(mixed[3][2]);   // Output: 6
+
+// Modifying array elements
+numbers[2] = 10;
+fruits[0] = "pear";
+mixed[1] = "world";
+console.log(numbers);       // Output: [1, 2, 10, 4, 5]
+console.log(fruits);        // Output: ["pear", "banana", "orange"]
+console.log(mixed);         // Output: [1, "world", true, [2, 4, 6]]
+
+// Array length
+console.log(numbers.length);    // Output: 5
+console.log(fruits.length);     // Output: 3
+console.log(mixed.length);      // Output: 4
+
+// Adding elements to an array
+numbers.push(6);
+fruits.push("grape");
+mixed.push(false);
+console.log(numbers);       // Output: [1, 2, 10, 4, 5, 6]
+console.log(fruits);        // Output: ["pear", "banana", "orange", "grape"]
+console.log(mixed);         // Output: [1, "world", true, [2, 4, 6], false]
+
+// Removing elements from an array
+numbers.pop();
+fruits.pop();
+mixed.pop();
+console.log(numbers);       // Output: [1, 2, 10, 4, 5]
+console.log(fruits);        // Output: ["pear", "banana", "orange"]
+console.log(mixed);         // Output: [1, "world", true, [2, 4, 6]]
+
+// Iterating over array elements
+for (var i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+}
+
+// Array methods
+var reversed = fruits.reverse();
+console.log(reversed);      // Output: ["orange", "banana", "pear"]
+
+var sorted = numbers.sort();
+console.log(sorted);        // Output: [1, 10, 2, 4, 5]
