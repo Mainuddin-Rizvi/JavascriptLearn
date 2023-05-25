@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Form DOM Manipulation Example</title>
+  <title>DOM Navigation Example</title>
   <style>
-    .error {
-      color: red;
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Form DOM Manipulation Example</h1>
-
-  <form id="myForm">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      <span id="nameError" class="error"></span>
+  <h1 id="heading">DOM Navigation Example</h1>
+  <ul>
+    <li><a href="#" onclick="navigateTo('section1')">Section 1</a></li>
+    <li><a href="#" onclick="navigateTo('section2')">Section 2</a></li>
+    <li><a href="#" onclick="openNewTab('https://www.example.com')">Open New Tab</a></li>
+    <li><a href="#" onclick="changeContent()">Change Content</a></li>
+    <li><a href="#" onclick="toggleElement()">Toggle Element</a></li>
+  </ul>
+  <div id="content">
+    <div id="section1">
+      <h2>Section 1</h2>
+      <p>This is section 1.</p>
     </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <span id="emailError" class="error"></span>
+    <div id="section2" class="hidden">
+      <h2>Section 2</h2>
+      <p>This is section 2.</p>
     </div>
-    <div>
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
-      <span id="messageError" class="error"></span>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+  </div>
 
   <script>
-    var form = document.getElementById("myForm");
+    function navigateTo(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
 
-    form.addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent form submission
+    function openNewTab(url) {
+      window.open(url, '_blank');
+    }
 
-      var nameInput = document.getElementById("name");
-      var emailInput = document.getElementById("email");
-      var messageInput = document.getElementById("message");
+    function changeContent() {
+      var content = document.getElementById('content');
+      content.innerHTML = `
+        <div id="section3">
+          <h2>Section 3</h2>
+          <p>This is section 3.</p>
+        </div>
+      `;
+    }
 
-      var nameError = document.getElementById("nameError");
-      var emailError = document.getElementById("emailError");
-      var messageError = document.getElementById("messageError");
-
-      // Clear previous error messages
-      nameError.textContent = "";
-      emailError.textContent = "";
-      messageError.textContent = "";
-
-      // Validate form inputs
-      if (nameInput.value.trim() === "") {
-        nameError.textContent = "Name is required";
-        nameInput.focus();
-        return;
-      }
-
-      if (emailInput.value.trim() === "") {
-        emailError.textContent = "Email is required";
-        emailInput.focus();
-        return;
-      }
-
-      if (messageInput.value.trim() === "") {
-        messageError.textContent = "Message is required";
-        messageInput.focus();
-        return;
-      }
-
-      // Form submission success
-      alert("Form submitted successfully!");
-      form.reset();
-    });
+    function toggleElement() {
+      var element = document.getElementById('section2');
+      element.classList.toggle('hidden');
+    }
   </script>
 </body>
 </html>
+
+
+<!-- 
+    parentNode
+    Childnodes & children
+    firstchild,
+    lastchild,
+    previoussibling,
+    nextsibling,
+
+    .nodename:
+    .nodeType:
+    Type Description
+    1   Element
+    2   Attr
+    3   Text
+    and so on..
+ -->
